@@ -1,0 +1,21 @@
+# Compiling for illumos/Oxide Helios
+
+Grub is used at Oxide under Helios for creating bootable
+KVM unit test images that can be started under propolis,
+our in-house hypervisor used with illumos/bhyve.
+
+For grub to be useful the following prerequisites must
+be installed:
+
+* xorriso
+* mtools
+* freetype2
+* GNU binutils for i386-elf.
+
+To build in this environment, run the following commands:
+
+* git clone git@github.com:oxidecomputer/grub.git
+* cd grub
+* PATH=/usr/gnu/bin:$PATH ./bootstrap
+* sh doit
+* sh do-install

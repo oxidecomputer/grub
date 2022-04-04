@@ -1,0 +1,3 @@
+#!/bin/sh
+fake_ld=$HOME/ports/fake-ld
+env LD_ALTEXEC=${fake_ld} gmake TARGET_CC='clang -Wno-int-to-pointer-cast' LDFLAGS+='--ld-path='"${fake_ld}"' -L/usr/lib/amd64' BUILD_CC=clang "$@"

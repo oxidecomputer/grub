@@ -1,0 +1,20 @@
+#!/bin/sh
+fake_ld=$HOME/ports/fake-ld
+env LD_ALTEXEC=$fake_ld \
+    CC=clang \
+    LDFLAGS='--ld-path='"$fake_ld"' -L/usr/lib/amd64' \
+    TARGET_CC=clang \
+    BUILD_CC=clang \
+    FREETYPE_CFLAGS='-I/opt/ooce/include/freetype2' \
+    FREETYPE_LIBS='-L/opt/ooce/lib/amd64 -rpath /opt/ooce/lib/amd64 -lfreetype' \
+    ../configure \
+	--prefix=/opt/grub \
+	--target=x86_64 \
+	--with-platform=efi \
+	--disable-silent-rules \
+	--disable-werror \
+	--enable-grub-mkfont \
+	--disable-nls \
+	--enable-mm-debug \
+	--enable-device-mapper \
+	--with-gnu-ld

@@ -1,0 +1,9 @@
+#!/bin/sh
+PATH=/usr/gnu/bin:/opt/gnu/bin:$PATH
+rm -fr build-efi
+mkdir build-efi
+cd build-efi && sh ../do-configure-efi && sh ../do-make-efi && sh ../do-font
+cd ..
+rm -fr build-pc
+mkdir build-pc
+cd build-pc && sh ../do-configure-pc && sh ../do-make-pc

@@ -1,0 +1,3 @@
+#!/bin/sh
+a=`echo "$@" | sed -e 's/-C/--demangle/g'`
+eval i386-elf-ld $a

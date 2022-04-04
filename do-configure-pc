@@ -1,0 +1,20 @@
+#!/bin/sh
+fake_ld=$(pwd)/../fake-ld
+env LD_ALTEXEC=$fake_ld \
+    PKG_CONFIG_PATH='/opt/ooce/lib/pkgconfig:/usr/lib/pkgconfig' \
+    CC=clang \
+    BUILD_LDFLAGS='--ld-path='"$fake_ld"' -L/usr/lib/amd64 -L/opt/ooce/lib -R/opt/ooce/lib' \
+    TARGET_LDFLAGS='--ld-path='"$fake_ld"'-pc' \
+    TARGET_CC=clang \
+    BUILD_CC=clang \
+    ../configure \
+	--prefix=/opt/grub \
+	--target=x86_64 \
+	--with-platform=pc \
+	--enable-efiemu \
+	--disable-silent-rules \
+	--disable-werror \
+	--disable-nls \
+	--enable-mm-debug \
+	--enable-device-mapper \
+	--with-gnu-ld

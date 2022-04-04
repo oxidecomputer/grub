@@ -1,0 +1,4 @@
+#!/bin/sh
+curl -O 'ftp://ftp.gnu.org/gnu/unifont/unifont-14.0.02/unifont-14.0.02.bdf.gz'
+gzcat unifont-14.0.02.bdf.gz > unifont.bdf
+./grub-mkfont -o unicode.pf2 unifont.bdf

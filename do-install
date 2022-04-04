@@ -1,0 +1,4 @@
+#!/bin/sh
+PATH=/usr/gnu/bin:/opt/gnu/bin:$PATH
+(cd build-efi && gmake install && cp unicode.pf2 /opt/grub/share/grub)
+(cd build-pc && gmake install)

@@ -1,0 +1,3 @@
+#!/bin/sh
+a=`echo "$@" | sed -e 's/-C/--demangle/g' -e 's/-Wl,-zdefaultextract//'`
+eval /usr/bin/gld.gold -L/usr/lib/amd64 $a

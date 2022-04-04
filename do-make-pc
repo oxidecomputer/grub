@@ -1,0 +1,10 @@
+#!/bin/sh
+fake_ld=$HOME/ports/fake-ld
+env LD_ALTEXEC=${fake_ld} \
+    gmake \
+	BUILD_CC=clang \
+	BUILD_LDFLAGS='--ld-path='"${fake_ld}"' -L/usr/lib/amd64' \
+    	TARGET_CC='clang -Wno-int-to-pointer-cast' \
+	TARGET_OBJCOPY='i386-elf-objcopy -R .init -R .fini' \
+	TARGET_STRIP='i386-elf-strip -R .init -R .fini' \
+	TARGET_LDFLAGS='--ld-path='"${fake_ld}"'-pc'
