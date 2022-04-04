@@ -198,7 +198,7 @@ __ctzsi2 (grub_uint32_t x)
 #if defined (__clang__) && !defined(GRUB_EMBED_DECOMPRESSOR)
 /* clang emits references to abort().  */
 void __attribute__ ((noreturn))
-abort (void)
+gabort (void)
 {
   grub_fatal ("compiler abort");
 }

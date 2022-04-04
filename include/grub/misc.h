@@ -424,7 +424,7 @@ void grub_reboot (void) __attribute__ ((noreturn));
 #endif
 
 #if defined (__clang__) && !defined (GRUB_UTIL)
-void __attribute__ ((noreturn)) EXPORT_FUNC (abort) (void);
+void __attribute__ ((noreturn)) EXPORT_FUNC (gabort) (void);
 #endif
 
 #ifdef GRUB_MACHINE_PCBIOS
